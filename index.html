@@ -1,0 +1,348 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>DSA Session: Hashmaps</title>
+  <link href="https://fonts.googleapis.com/css2?family=Anton&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<div id="deck">
+
+<section class="sl on cv" data-s="0">
+<div class="tb"><span class="tk">Dev Weekends</span><span class="hr"></span><span class="pl"><span class="dt"></span>DSA Session</span></div>
+<div class="mb">
+<div class="tk dm" style="margin-bottom:1.4%">Presented by Usama Razzaq</div>
+<h1 class="dp" style="font-size:min(12vw,80px)">Hashmaps</h1>
+<p class="ld" style="margin-top:2%">Fundamentals, Operations, and Core Concepts</p>
+</div>
+<div class="ft"><div class="ur"><a href="https://devweekends.com" target="_blank" style="color:inherit;text-decoration:none;">devweekends.com</a></div><div class="pg"></div></div>
+</section>
+
+<section class="sl" data-s="1">
+<div class="tb"><span class="tk">Today</span><span class="hr"></span><span class="pl"><span class="dt"></span>Agenda</span></div>
+<div class="tk dm hk">What we're covering</div>
+<h2 class="dp ht sm">Today's <span class="gh">plan</span></h2>
+<div class="rw">
+<div class="ri"><span class="rn">01</span><div class="rtx"><span class="rtt">Overview & Need</span></div></div>
+<div class="ri"><span class="rn">02</span><div class="rtx"><span class="rtt">Components & Working</span></div></div>
+<div class="ri"><span class="rn">03</span><div class="rtx"><span class="rtt">Hash Functions & Advantages</span></div></div>
+<div class="ri"><span class="rn">04</span><div class="rtx"><span class="rtt">Collisions & Load Factor</span></div></div>
+<div class="ri"><span class="rn">05</span><div class="rtx"><span class="rtt">Ordered vs Unordered Map</span></div></div>
+<div class="ri"><span class="rn">06</span><div class="rtx"><span class="rtt">Built-In C++ Functions</span></div></div>
+</div>
+<div class="ft"><div class="ur"><a href="https://devweekends.com" target="_blank" style="color:inherit;text-decoration:none;">devweekends.com</a></div><div class="pg"></div></div>
+</section>
+
+<section class="sl" data-s="2">
+<div class="tb"><span class="tk">Concept</span><span class="hr"></span><span class="pl"><span class="dt"></span>Core Idea</span></div>
+<div class="tw">
+<div class="lf">
+<div class="tk dm hk">Basic Terminology</div>
+<h2 class="dp ht sm">What is a<br><span class="gh">Hashmap?</span></h2>
+<p class="ld">Hashing transforms a large, variable-size input into a smaller, fixed-size output (index) using mathematical formulas called hash functions.</p>
+</div>
+<div class="rw">
+<div class="ri"><span class="rn">01</span><div class="rtx"><span class="rtt">Highly Efficient</span><span class="rdd">Supports search, insert, and delete in O(1) time on average.</span></div></div>
+<div class="ri"><span class="rn">02</span><div class="rtx"><span class="rtt">Hash Set</span><span class="rdd">Collection of unique keys (e.g., Python Set, C++ unordered_set).</span></div></div>
+<div class="ri"><span class="rn">03</span><div class="rtx"><span class="rtt">Hash Map</span><span class="rdd">Key-value pairs with unique keys (e.g., Python Dict, C++ unordered_map).</span></div></div>
+</div>
+</div>
+<div class="ft"><div class="ur"><a href="https://devweekends.com" target="_blank" style="color:inherit;text-decoration:none;">devweekends.com</a></div><div class="pg"></div></div>
+</section>
+
+<section class="sl" data-s="3">
+<div class="tb"><span class="tk">Context</span><span class="hr"></span><span class="pl"><span class="dt"></span>Why Hashing?</span></div>
+<div class="mb">
+<div class="tk dm hk">Solving inefficiency</div>
+<h2 class="dp ht sm">Need for<br><span class="gh">Hash Data Structure</span></h2>
+<p class="ld" style="margin-top:2%">Data is growing exponentially. While Arrays allow storing in O(1) time, searching takes at least O(log n) time. For massive datasets, this becomes highly inefficient.</p>
+<br>
+<p class="ld">Hashing bridges this gap by providing a data structure that enables <strong>storing, searching, and retrieving data in constant O(1) time.</strong></p>
+</div>
+<div class="ft"><div class="ur"><a href="https://devweekends.com" target="_blank" style="color:inherit;text-decoration:none;">devweekends.com</a></div><div class="pg"></div></div>
+</section>
+
+<section class="sl" data-s="4">
+<div class="tb"><span class="tk">Architecture</span><span class="hr"></span><span class="pl"><span class="dt"></span>Structure</span></div>
+<div class="tw">
+<div class="lf">
+<div class="tk dm hk">The moving parts</div>
+<h2 class="dp ht sm">Components of<br><span class="gh">Hashing</span></h2>
+<p class="ld">There are three major components that make up the hashing architecture.</p>
+</div>
+<div class="rw">
+<div class="ri"><span class="rn">01</span><div class="rtx"><span class="rtt">Key</span><span class="rdd">The input (string or integer) fed into the hash function.</span></div></div>
+<div class="ri"><span class="rn">02</span><div class="rtx"><span class="rtt">Hash Function</span><span class="rdd">Receives the key and computes a hash index.</span></div></div>
+<div class="ri"><span class="rn">03</span><div class="rtx"><span class="rtt">Hash Table</span><span class="rdd">An array that stores values at the computed unique index.</span></div></div>
+</div>
+</div>
+<div class="ft"><div class="ur"><a href="https://devweekends.com" target="_blank" style="color:inherit;text-decoration:none;">devweekends.com</a></div><div class="pg"></div></div>
+</section>
+
+<section class="sl" data-s="5">
+<div class="tb"><span class="tk">Visual</span><span class="hr"></span><span class="pl"><span class="dt"></span>Step-by-step</span></div>
+<div class="mb">
+<div class="tk dm hk">The process</div>
+<h2 class="dp ht sm">How does<br><span class="gh">Hashing work?</span></h2>
+<p class="ld" style="margin-top:2%">Storing strings {"ab", "cd", "efg"} in a table of size 7.</p>
+
+<ul style="color: #8c8c8c; font-size: 16px; margin-left: 20px; margin-top: 15px; margin-bottom: 20px;">
+  <li><strong>Step 1:</strong> Assign numerical values (a=1, b=2, etc.).</li>
+  <li><strong>Step 2:</strong> Compute key sum: "ab"=3, "cd"=7, "efg"=18.</li>
+  <li><strong>Step 3:</strong> Apply hash function: <code>Sum(key) % Table_Size</code>.</li>
+</ul>
+
+<div class="visual-array" style="justify-content: flex-start; gap: 15px;">
+  <div class="array-cell-container"><div class="array-index">0</div><div class="array-cell highlight-cell">cd</div><div class="array-address">7%7</div></div>
+  <div class="array-cell-container"><div class="array-index">1</div><div class="array-cell"></div><div class="array-address"></div></div>
+  <div class="array-cell-container"><div class="array-index">2</div><div class="array-cell"></div><div class="array-address"></div></div>
+  <div class="array-cell-container"><div class="array-index">3</div><div class="array-cell highlight-cell">ab</div><div class="array-address">3%7</div></div>
+  <div class="array-cell-container"><div class="array-index">4</div><div class="array-cell highlight-cell">efg</div><div class="array-address">18%7</div></div>
+</div>
+</div>
+<div class="ft"><div class="ur"><a href="https://devweekends.com" target="_blank" style="color:inherit;text-decoration:none;">devweekends.com</a></div><div class="pg"></div></div>
+</section>
+
+<section class="sl" data-s="6">
+<div class="tb"><span class="tk">Approach 1</span><span class="hr"></span><span class="pl"><span class="dt"></span>Frequency Array</span></div>
+<div class="mb">
+<div class="tk dm hk">Using an Array</div>
+<h2 class="dp ht sm">Max Character<br><span class="gh">Frequency</span></h2>
+<p class="ld" style="margin-top:2%">Consider string <code style="color:#fff">str = "abcbdcaaf"</code>.</p>
+<p class="ld" style="margin-top:2%">How do we find the maximum occurring character in this string?</p>
+<br>
+<p class="ld">We can create an array of size 26 and map each alphabet to an index ('a' &rarr; 0, 'b' &rarr; 1, etc). Then store the frequency by increasing the count at that position.</p>
+</div>
+<div class="ft"><div class="ur"><a href="https://devweekends.com" target="_blank" style="color:inherit;text-decoration:none;">devweekends.com</a></div><div class="pg"></div></div>
+</section>
+
+<section class="sl" data-s="7">
+<div class="tb"><span class="tk">Approach 1</span><span class="hr"></span><span class="pl"><span class="dt"></span>Frequency Array</span></div>
+<div class="mb">
+<div class="tk dm hk">Visual Mapping</div>
+<h2 class="dp ht sm">Array<br><span class="gh">Representation</span></h2>
+<p class="ld" style="margin-top:2%">Each index corresponds to a letter, holding its count.</p>
+
+<div class="visual-array" style="justify-content: flex-start; gap: 15px; margin-top: 30px;">
+  <div class="array-cell-container"><div class="array-index">'a' (0)</div><div class="array-cell highlight-cell">3</div></div>
+  <div class="array-cell-container"><div class="array-index">'b' (1)</div><div class="array-cell">2</div></div>
+  <div class="array-cell-container"><div class="array-index">'c' (2)</div><div class="array-cell">2</div></div>
+  <div class="array-cell-container"><div class="array-index">'d' (3)</div><div class="array-cell">1</div></div>
+  <div class="array-cell-container"><div class="array-index">...</div><div class="array-cell" style="color:transparent">_</div></div>
+  <div class="array-cell-container"><div class="array-index">'z' (25)</div><div class="array-cell">0</div></div>
+</div>
+</div>
+<div class="ft"><div class="ur"><a href="https://devweekends.com" target="_blank" style="color:inherit;text-decoration:none;">devweekends.com</a></div><div class="pg"></div></div>
+</section>
+
+<section class="sl" data-s="8">
+<div class="tb"><span class="tk">Approach 1</span><span class="hr"></span><span class="pl so"><span class="dt"></span>Code</span></div>
+<div class="mb">
+<div class="tk dm hk">Implementation</div>
+<h2 class="dp ht sm">Counting<br><span class="gh">Logic</span></h2>
+<p class="ld" style="margin-top:2%">We iterate through the string and update the count based on the calculated index.</p>
+
+<div class="code-block" style="margin-top:20px;">
+<span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; str.size(); i++) {
+    <span class="keyword">char</span> ch = str[i];
+    
+    <span class="comment">// 'a'-'a'=0, 'b'-'a'=1, 'z'-'a'=25</span>
+    count[ch - <span class="string">'a'</span>]++; 
+}
+<span class="comment">// Iterate array to find max count</span>
+</div>
+</div>
+<div class="ft"><div class="ur"><a href="https://devweekends.com" target="_blank" style="color:inherit;text-decoration:none;">devweekends.com</a></div><div class="pg"></div></div>
+</section>
+
+<section class="sl" data-s="9">
+<div class="tb"><span class="tk">Limitation</span><span class="hr"></span><span class="pl"><span class="dt"></span>The Problem</span></div>
+<div class="mb">
+<div class="tk dm hk">When arrays fail</div>
+<h2 class="dp ht sm">What about<br><span class="gh">Words?</span></h2>
+<p class="ld" style="margin-top:2%">What if the string has words? e.g., <code style="color:#fff">"mera naam hai babbar mera babbar babbar"</code></p>
+<p class="ld" style="margin-top:2%">We cannot easily map words to array indices (e.g., mera &rarr; 0, naam &rarr; 1).</p>
+<br>
+<p class="ld" style="color:#ff5757; font-weight:600;">This simple index mapping is not possible with an array.</p>
+</div>
+<div class="ft"><div class="ur"><a href="https://devweekends.com" target="_blank" style="color:inherit;text-decoration:none;">devweekends.com</a></div><div class="pg"></div></div>
+</section>
+
+<section class="sl" data-s="10">
+<div class="tb"><span class="tk">Solution</span><span class="hr"></span><span class="pl"><span class="dt"></span>HashMap</span></div>
+<div class="mb">
+<div class="tk dm hk">Introducing KVP</div>
+<h2 class="dp ht sm">Key Value<br><span class="gh">Pairs</span></h2>
+<p class="ld" style="margin-top:2%">We need a structure that maps <span style="color:#fff">Strings</span> to <span style="color:#fff">Integers</span> directly.</p>
+
+<div class="tw" style="margin-top: 20px;">
+  <div class="lf" style="border: 1px solid #333; padding: 20px; border-radius: 8px;">
+    <ul style="color: #d1d1d1; font-size: 18px; line-height: 1.8;">
+      <li><code style="color:#fff">&lt;"mera", 2&gt;</code></li>
+      <li><code style="color:#fff">&lt;"naam", 1&gt;</code></li>
+      <li><code style="color:#fff">&lt;"hai", 1&gt;</code></li>
+      <li><code style="color:#fff; color: #ff5757">&lt;"babbar", 3&gt;</code> &rarr; <strong>Answer</strong></li>
+    </ul>
+  </div>
+  <div class="rw" style="display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 15px;">
+    <h3 style="color:#f5f5f5; font-size: 28px; text-align: center;">That's why we use<br><span class="gh">HashMaps!</span></h3>
+    <div style="background: rgba(255, 255, 255, 0.1); padding: 10px 20px; border-radius: 6px; border: 1px solid rgba(255, 255, 255, 0.2);">
+      <code style="color:#fff; font-size: 20px;">KVP &rarr; Key Value Pair</code>
+    </div>
+  </div>
+</div>
+</div>
+<div class="ft"><div class="ur"><a href="https://devweekends.com" target="_blank" style="color:inherit;text-decoration:none;">devweekends.com</a></div><div class="pg"></div></div>
+</section>
+
+<section class="sl" data-s="11">
+<div class="tb"><span class="tk">Logic</span><span class="hr"></span><span class="pl"><span class="dt"></span>Math</span></div>
+<div class="tw">
+<div class="lf">
+<div class="tk dm hk">The Engine</div>
+<h2 class="dp ht sm">What is a<br><span class="gh">Hash Function?</span></h2>
+<p class="ld">A mathematical formula that maps an input key to a valid array index.</p>
+</div>
+<div class="rw">
+<h3 style="color:#f5f5f5; margin-bottom: 10px; font-family: 'Inter', sans-serif;">Properties of a good Hash Function:</h3>
+<div class="ri"><span class="rn">01</span><div class="rtx"><span class="rtt">Efficiency</span><span class="rdd">Fast computation.</span></div></div>
+<div class="ri"><span class="rn">02</span><div class="rtx"><span class="rtt">Uniform Distribution</span><span class="rdd">Keys should be spread evenly across the table.</span></div></div>
+<div class="ri"><span class="rn">03</span><div class="rtx"><span class="rtt">Collision Minimization</span><span class="rdd">Avoid mapping multiple keys to the same index.</span></div></div>
+<div class="ri"><span class="rn">04</span><div class="rtx"><span class="rtt">Low Load Factor</span><span class="rdd">Maintain optimal capacity.</span></div></div>
+</div>
+</div>
+<div class="ft"><div class="ur"><a href="https://devweekends.com" target="_blank" style="color:inherit;text-decoration:none;">devweekends.com</a></div><div class="pg"></div></div>
+</section>
+
+<section class="sl" data-s="12">
+<div class="tb"><span class="tk">Benefits</span><span class="hr"></span><span class="pl"><span class="dt"></span>Pros</span></div>
+<div class="mb">
+<div class="tk dm hk">Why use it?</div>
+<h2 class="dp ht sm">Advantages of<br><span class="gh">Hashing</span></h2>
+<ul style="color: #d1d1d1; font-size: 18px; margin-left: 20px; margin-top: 20px; line-height: 1.8;">
+  <li><strong style="color: #fff">Key-Value Support:</strong> Ideal for implementing associative data structures.</li>
+  <li><strong style="color: #fff">Fast Retrieval:</strong> Constant-time O(1) access complexity.</li>
+  <li><strong style="color: #fff">High Efficiency:</strong> Extremely fast insertion, deletion, and searching.</li>
+  <li><strong style="color: #fff">Memory Reduction:</strong> Allocates fixed, manageable space.</li>
+  <li><strong style="color: #fff">Scalability:</strong> Performs exceptionally well with massive datasets.</li>
+  <li><strong style="color: #fff">Security:</strong> Essential for cryptography and integrity verification.</li>
+</ul>
+</div>
+<div class="ft"><div class="ur"><a href="https://devweekends.com" target="_blank" style="color:inherit;text-decoration:none;">devweekends.com</a></div><div class="pg"></div></div>
+</section>
+
+<section class="sl" data-s="13">
+<div class="tb"><span class="tk">Edge Cases</span><span class="hr"></span><span class="pl"><span class="dt"></span>Problem</span></div>
+<div class="mb">
+<div class="tk dm hk">When things overlap</div>
+<h2 class="dp ht sm">Collision in<br><span class="gh">Hashing</span></h2>
+<p class="ld" style="margin-top:2%">A collision occurs when two or more distinct keys generate the exact same hash value.</p>
+<br>
+<p class="ld" style="font-size: 16px;"><strong>Example:</strong> Using the sum-of-characters hash function, the strings {"ab", "ba"} both evaluate to 3. They map to the same index, causing a collision which disrupts insertion and searching.</p>
+<br>
+<p class="ld" style="font-size: 16px;"><strong>Resolution:</strong> Managed using Collision Resolution Techniques (e.g., Chaining or Open Addressing).</p>
+</div>
+<div class="ft"><div class="ur"><a href="https://devweekends.com" target="_blank" style="color:inherit;text-decoration:none;">devweekends.com</a></div><div class="pg"></div></div>
+</section>
+
+<section class="sl" data-s="14">
+<div class="tb"><span class="tk">Metrics</span><span class="hr"></span><span class="pl"><span class="dt"></span>Performance</span></div>
+<div class="mb">
+<div class="tk dm hk">Measuring fullness</div>
+<h2 class="dp ht sm">Load Factor<br><span class="gh">in Hashing</span></h2>
+<p class="ld" style="margin-top:2%">The ratio that indicates how full a hash table is. It's a decisive parameter for resizing (rehashing) the table.</p>
+
+<div class="code-block" style="margin-top:20px; font-size: 20px;">
+Load Factor = (Total elements in hash table) / (Size of hash table)
+</div>
+<p class="ld" style="margin-top:20px; font-size: 16px;">A lower load factor helps determine the efficiency of the hash function and ensures keys are distributed uniformly.</p>
+</div>
+<div class="ft"><div class="ur"><a href="https://devweekends.com" target="_blank" style="color:inherit;text-decoration:none;">devweekends.com</a></div><div class="pg"></div></div>
+</section>
+
+<section class="sl" data-s="15">
+<div class="tb"><span class="tk">Comparison</span><span class="hr"></span><span class="pl"><span class="dt"></span>Data Structures</span></div>
+<div class="mb">
+<div class="tk dm hk">Choosing the right map</div>
+<h2 class="dp ht sm">Ordered Map vs<br><span class="gh">Unordered Map</span></h2>
+<div class="table-wrapper" style="margin-top: 10px;">
+  <table class="vector-table">
+    <thead><tr><th>Feature</th><th>std::map</th><th>std::unordered_map</th></tr></thead>
+    <tbody>
+      <tr><td><strong>Order</strong></td><td>Sorted (by key)</td><td>No order</td></tr>
+      <tr><td><strong>Time (Lookup)</strong></td><td>O(log n)</td><td>O(1) average case</td></tr>
+      <tr><td><strong>Use case</strong></td><td>When sorted order is needed</td><td>When raw speed is needed</td></tr>
+    </tbody>
+  </table>
+</div>
+</div>
+<div class="ft"><div class="ur"><a href="https://devweekends.com" target="_blank" style="color:inherit;text-decoration:none;">devweekends.com</a></div><div class="pg"></div></div>
+</section>
+
+<section class="sl" data-s="16">
+<div class="tb"><span class="tk">C++</span><span class="hr"></span><span class="pl"><span class="dt"></span>Library</span></div>
+<div class="mb">
+<div class="tk dm hk">Standard Template Library</div>
+<h2 class="dp ht sm">Built-In<br><span class="gh">HashMap Functions</span></h2>
+<div class="table-wrapper" style="margin-top: 10px;">
+  <table class="vector-table" style="font-size: 14px;">
+    <thead><tr><th>Function</th><th>Description</th></tr></thead>
+    <tbody>
+      <tr><td><code>insert({key, val})</code></td><td>Inserts a new key-value pair.</td></tr>
+      <tr><td><code>mp[key] = value</code></td><td>Inserts or updates the value associated with a key.</td></tr>
+      <tr><td><code>mp.count(key)</code></td><td>Returns 1 if key exists, 0 otherwise.</td></tr>
+      <tr><td><code>mp.find(key)</code></td><td>Returns iterator to key if found, else mp.end().</td></tr>
+      <tr><td><code>mp.erase(key)</code></td><td>Removes the key and its value.</td></tr>
+      <tr><td><code>mp.size()</code></td><td>Returns number of pairs in the map.</td></tr>
+      <tr><td><code>for(auto pair : mp)</code></td><td>Iterate through the entire map.</td></tr>
+    </tbody>
+  </table>
+</div>
+</div>
+<div class="ft"><div class="ur"><a href="https://devweekends.com" target="_blank" style="color:inherit;text-decoration:none;">devweekends.com</a></div><div class="pg"></div></div>
+</section>
+
+<section class="sl" data-s="17">
+<div class="tb"><span class="tk">After This Session</span><span class="hr"></span><span class="pl"><span class="dt"></span>Resources</span></div>
+<div class="tk dm hk">Keep going</div>
+<h2 class="dp ht sm">Reference<br><span class="gh">Material</span></h2>
+<div class="g3">
+<div class="gc"><div class="gt">DSA Roadmap</div><div class="gd">Complete DSA Roadmap on GitHub.</div><div class="gg"><a href="https://github.com/devweekends/DW-Fellowship-DSA-Roadmap" target="_blank" style="color:inherit;text-decoration:underline;">Link</a></div></div>
+<div class="gc fe"><div class="gt" style="color:#0a0a0a">Level 2 Hashmaps</div><div class="gd" style="color:#3a3a3a">Specific Hashmap problems.</div><div class="gg" style="color:#6a6a6a"><a href="https://github.com/devweekends/DW-Fellowship-DSA-Roadmap/tree/main/Level%200/2%20Hashmaps" target="_blank" style="color:inherit;text-decoration:underline;">Link</a></div></div>
+</div>
+<div class="ft"><div class="ur"><a href="https://devweekends.com" target="_blank" style="color:inherit;text-decoration:none;">devweekends.com</a></div><div class="pg"></div></div>
+</section>
+
+<section class="sl dv cl" data-s="18">
+<div class="tb"><span class="tk">Open Floor</span><span class="hr"></span><span class="pl so"><span class="dt"></span>Ask Anything</span></div>
+<div class="mb">
+<div class="tk dm hk">Your turn</div>
+<h1 class="dp" style="font-size:min(10vw,72px)">Questions<span class="gh">?</span></h1>
+<p class="ld" style="margin-top:2%">Feel free to ask your questions in the comments!</p>
+</div>
+<div class="ft"><div class="ur"><a href="https://devweekends.com" target="_blank" style="color:inherit;text-decoration:none;">devweekends.com</a></div><div class="pg"></div></div>
+</section>
+
+<div class="nv">
+<button id="prv">&#8592;</button>
+<span class="ct" id="ct">01 / 19</span>
+<button id="nxt">&#8594;</button>
+</div>
+
+</div>
+
+<script>
+var sls=document.querySelectorAll('.sl'),ct=document.getElementById('ct'),tot=sls.length,cur=0;
+function pad(n){return String(n).padStart(2,'0')}
+sls.forEach(function(s,i){var p=s.querySelector('.pg');if(p)p.textContent=pad(i+1)+' / '+pad(tot);});
+function go(n){cur=Math.max(0,Math.min(tot-1,n));sls.forEach(function(s,i){if(i===cur){s.classList.add('on');s.style.display='flex'}else{s.classList.remove('on');s.style.display='none'}});ct.textContent=pad(cur+1)+' / '+pad(tot);}
+document.getElementById('nxt').onclick=function(){go(cur+1)};
+document.getElementById('prv').onclick=function(){go(cur-1)};
+document.addEventListener('keydown',function(e){if(e.key==='ArrowRight'||e.key===' '){e.preventDefault();go(cur+1)}if(e.key==='ArrowLeft'){e.preventDefault();go(cur-1)}});
+go(0);
+</script>
+</body>
+</html>
