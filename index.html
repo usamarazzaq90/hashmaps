@@ -175,19 +175,25 @@
 </section>
 
 <section class="sl" data-s="10">
-<div class="tb"><span class="tk">Logic</span><span class="hr"></span><span class="pl"><span class="dt"></span>Math</span></div>
-<div class="tw">
-<div class="lf">
-<div class="tk dm hk">The Engine</div>
-<h2 class="dp ht sm">What is a<br><span class="gh">Hash Function?</span></h2>
-<p class="ld">A mathematical algorithm that converts a key (like a word or ID) into a fixed-size numerical index.</p>
-</div>
-<div class="rw">
-<h3 style="color:#f5f5f5; margin-bottom: 10px; font-family: 'Inter', sans-serif;">Properties of a good Hash Function:</h3>
-<div class="ri"><span class="rn">01</span><div class="rtx"><span class="rtt">Efficiency</span><span class="rdd">Fast computation.</span></div></div>
-<div class="ri"><span class="rn">02</span><div class="rtx"><span class="rtt">Uniform Distribution</span><span class="rdd">Keys should be spread evenly across the table.</span></div></div>
-<div class="ri"><span class="rn">03</span><div class="rtx"><span class="rtt">Collision Minimization</span><span class="rdd">Avoid mapping multiple keys to the same index.</span></div></div>
-<div class="ri"><span class="rn">04</span><div class="rtx"><span class="rtt">Low Load Factor</span><span class="rdd">Maintain optimal capacity.</span></div></div>
+<div class="tb"><span class="tk">Analogy</span><span class="hr"></span><span class="pl"><span class="dt"></span>Real World</span></div>
+<div class="mb">
+<div class="tk dm hk">Everyday Use Case</div>
+<h2 class="dp ht sm">Phonebook<br><span class="gh">Analogy</span></h2>
+<p class="ld" style="margin-top:2%">When you want to call a friend, you don't scroll through every number in your phone one by one.</p>
+<p class="ld" style="margin-top:2%">You search for their <strong>Name</strong>, and the phone instantly gives you their <strong>Phone Number</strong>.</p>
+
+<div class="tw" style="margin-top: 20px;">
+  <div class="lf" style="border: 1px solid #333; padding: 20px; border-radius: 8px;">
+    <h3 style="color:#f5f5f5; margin-bottom: 15px;">Phonebook Mapping</h3>
+    <ul style="color: #d1d1d1; font-size: 18px; line-height: 1.8;">
+      <li><code style="color:#fff">Key: "Alice"</code> &rarr; <code style="color:#fff; color:#4ade80">Value: "555-0101"</code></li>
+      <li><code style="color:#fff">Key: "Bob"</code> &rarr; <code style="color:#fff; color:#4ade80">Value: "555-0202"</code></li>
+      <li><code style="color:#fff">Key: "Charlie"</code> &rarr; <code style="color:#fff; color:#4ade80">Value: "555-0303"</code></li>
+    </ul>
+  </div>
+  <div class="rw" style="display: flex; align-items: center; justify-content: center;">
+    <p class="ld" style="font-size: 20px; color: #f5f5f5; text-align: center;">This is exactly how a <strong>HashMap</strong> works under the hood. It links a unique Key to a specific Value for instant O(1) retrieval.</p>
+  </div>
 </div>
 </div>
 <div class="ft"><div class="ur"><a href="https://devweekends.com" target="_blank" style="color:inherit;text-decoration:none;">devweekends.com</a></div><div class="pg"></div></div>
@@ -287,7 +293,7 @@ Load Factor = (Total elements in hash table) / (Size of hash table)
 <h2 class="dp ht sm">Reference<br><span class="gh">Material</span></h2>
 <div class="g3">
 <div class="gc"><div class="gt">DSA Roadmap</div><div class="gd">Complete DSA Roadmap on GitHub.</div><div class="gg"><a href="https://github.com/devweekends/DW-Fellowship-DSA-Roadmap" target="_blank" style="color:inherit;text-decoration:underline;">Link</a></div></div>
-<div class="gc fe"><div class="gt" style="color:#0a0a0a">Level 2 Hashmaps</div><div class="gd" style="color:#3a3a3a">Specific Hashmap problems.</div><div class="gg" style="color:#6a6a6a"><a href="https://github.com/devweekends/DW-Fellowship-DSA-Roadmap/tree/main/Level%200/2%20Hashmaps" target="_blank" style="color:inherit;text-decoration:underline;">Link</a></div></div>
+<div class="gc fe"><div class="gt" style="color:#0a0a0a">Hashmaps Problems</div><div class="gd" style="color:#3a3a3a">Specific Hashmap problems.</div><div class="gg" style="color:#6a6a6a"><a href="https://github.com/devweekends/DW-Fellowship-DSA-Roadmap/tree/main/Level%200/2%20Hashmaps" target="_blank" style="color:inherit;text-decoration:underline;">Link</a></div></div>
 </div>
 <div class="ft"><div class="ur"><a href="https://devweekends.com" target="_blank" style="color:inherit;text-decoration:none;">devweekends.com</a></div><div class="pg"></div></div>
 </section>
