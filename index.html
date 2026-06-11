@@ -83,30 +83,6 @@
 </section>
 
 <section class="sl" data-s="5">
-<div class="tb"><span class="tk">Visual</span><span class="hr"></span><span class="pl"><span class="dt"></span>Step-by-step</span></div>
-<div class="mb">
-<div class="tk dm hk">The process</div>
-<h2 class="dp ht sm">How does<br><span class="gh">Hashing work?</span></h2>
-<p class="ld" style="margin-top:2%">Storing strings {"ab", "cd", "efg"} in a table of size 7.</p>
-
-<ul style="color: #8c8c8c; font-size: 16px; margin-left: 20px; margin-top: 15px; margin-bottom: 20px;">
-  <li><strong>Step 1:</strong> Assign numerical values (a=1, b=2, etc.).</li>
-  <li><strong>Step 2:</strong> Compute key sum: "ab"=3, "cd"=7, "efg"=18.</li>
-  <li><strong>Step 3:</strong> Apply hash function: <code>Sum(key) % Table_Size</code>.</li>
-</ul>
-
-<div class="visual-array" style="justify-content: flex-start; gap: 15px;">
-  <div class="array-cell-container"><div class="array-index">0</div><div class="array-cell highlight-cell">cd</div><div class="array-address">7%7</div></div>
-  <div class="array-cell-container"><div class="array-index">1</div><div class="array-cell"></div><div class="array-address"></div></div>
-  <div class="array-cell-container"><div class="array-index">2</div><div class="array-cell"></div><div class="array-address"></div></div>
-  <div class="array-cell-container"><div class="array-index">3</div><div class="array-cell highlight-cell">ab</div><div class="array-address">3%7</div></div>
-  <div class="array-cell-container"><div class="array-index">4</div><div class="array-cell highlight-cell">efg</div><div class="array-address">18%7</div></div>
-</div>
-</div>
-<div class="ft"><div class="ur"><a href="https://devweekends.com" target="_blank" style="color:inherit;text-decoration:none;">devweekends.com</a></div><div class="pg"></div></div>
-</section>
-
-<section class="sl" data-s="6">
 <div class="tb"><span class="tk">Approach 1</span><span class="hr"></span><span class="pl"><span class="dt"></span>Frequency Array</span></div>
 <div class="mb">
 <div class="tk dm hk">Using an Array</div>
@@ -119,7 +95,7 @@
 <div class="ft"><div class="ur"><a href="https://devweekends.com" target="_blank" style="color:inherit;text-decoration:none;">devweekends.com</a></div><div class="pg"></div></div>
 </section>
 
-<section class="sl" data-s="7">
+<section class="sl" data-s="6">
 <div class="tb"><span class="tk">Approach 1</span><span class="hr"></span><span class="pl"><span class="dt"></span>Frequency Array</span></div>
 <div class="mb">
 <div class="tk dm hk">Visual Mapping</div>
@@ -138,7 +114,7 @@
 <div class="ft"><div class="ur"><a href="https://devweekends.com" target="_blank" style="color:inherit;text-decoration:none;">devweekends.com</a></div><div class="pg"></div></div>
 </section>
 
-<section class="sl" data-s="8">
+<section class="sl" data-s="7">
 <div class="tb"><span class="tk">Approach 1</span><span class="hr"></span><span class="pl so"><span class="dt"></span>Code</span></div>
 <div class="mb">
 <div class="tk dm hk">Implementation</div>
@@ -158,7 +134,7 @@
 <div class="ft"><div class="ur"><a href="https://devweekends.com" target="_blank" style="color:inherit;text-decoration:none;">devweekends.com</a></div><div class="pg"></div></div>
 </section>
 
-<section class="sl" data-s="9">
+<section class="sl" data-s="8">
 <div class="tb"><span class="tk">Limitation</span><span class="hr"></span><span class="pl"><span class="dt"></span>The Problem</span></div>
 <div class="mb">
 <div class="tk dm hk">When arrays fail</div>
@@ -171,7 +147,7 @@
 <div class="ft"><div class="ur"><a href="https://devweekends.com" target="_blank" style="color:inherit;text-decoration:none;">devweekends.com</a></div><div class="pg"></div></div>
 </section>
 
-<section class="sl" data-s="10">
+<section class="sl" data-s="9">
 <div class="tb"><span class="tk">Solution</span><span class="hr"></span><span class="pl"><span class="dt"></span>HashMap</span></div>
 <div class="mb">
 <div class="tk dm hk">Introducing KVP</div>
@@ -198,13 +174,13 @@
 <div class="ft"><div class="ur"><a href="https://devweekends.com" target="_blank" style="color:inherit;text-decoration:none;">devweekends.com</a></div><div class="pg"></div></div>
 </section>
 
-<section class="sl" data-s="11">
+<section class="sl" data-s="10">
 <div class="tb"><span class="tk">Logic</span><span class="hr"></span><span class="pl"><span class="dt"></span>Math</span></div>
 <div class="tw">
 <div class="lf">
 <div class="tk dm hk">The Engine</div>
 <h2 class="dp ht sm">What is a<br><span class="gh">Hash Function?</span></h2>
-<p class="ld">A mathematical formula that maps an input key to a valid array index.</p>
+<p class="ld">A mathematical algorithm that converts a key (like a word or ID) into a fixed-size numerical index.</p>
 </div>
 <div class="rw">
 <h3 style="color:#f5f5f5; margin-bottom: 10px; font-family: 'Inter', sans-serif;">Properties of a good Hash Function:</h3>
@@ -217,7 +193,7 @@
 <div class="ft"><div class="ur"><a href="https://devweekends.com" target="_blank" style="color:inherit;text-decoration:none;">devweekends.com</a></div><div class="pg"></div></div>
 </section>
 
-<section class="sl" data-s="12">
+<section class="sl" data-s="11">
 <div class="tb"><span class="tk">Benefits</span><span class="hr"></span><span class="pl"><span class="dt"></span>Pros</span></div>
 <div class="mb">
 <div class="tk dm hk">Why use it?</div>
@@ -234,7 +210,7 @@
 <div class="ft"><div class="ur"><a href="https://devweekends.com" target="_blank" style="color:inherit;text-decoration:none;">devweekends.com</a></div><div class="pg"></div></div>
 </section>
 
-<section class="sl" data-s="13">
+<section class="sl" data-s="12">
 <div class="tb"><span class="tk">Edge Cases</span><span class="hr"></span><span class="pl"><span class="dt"></span>Problem</span></div>
 <div class="mb">
 <div class="tk dm hk">When things overlap</div>
@@ -248,7 +224,7 @@
 <div class="ft"><div class="ur"><a href="https://devweekends.com" target="_blank" style="color:inherit;text-decoration:none;">devweekends.com</a></div><div class="pg"></div></div>
 </section>
 
-<section class="sl" data-s="14">
+<section class="sl" data-s="13">
 <div class="tb"><span class="tk">Metrics</span><span class="hr"></span><span class="pl"><span class="dt"></span>Performance</span></div>
 <div class="mb">
 <div class="tk dm hk">Measuring fullness</div>
@@ -263,7 +239,7 @@ Load Factor = (Total elements in hash table) / (Size of hash table)
 <div class="ft"><div class="ur"><a href="https://devweekends.com" target="_blank" style="color:inherit;text-decoration:none;">devweekends.com</a></div><div class="pg"></div></div>
 </section>
 
-<section class="sl" data-s="15">
+<section class="sl" data-s="14">
 <div class="tb"><span class="tk">Comparison</span><span class="hr"></span><span class="pl"><span class="dt"></span>Data Structures</span></div>
 <div class="mb">
 <div class="tk dm hk">Choosing the right map</div>
@@ -282,7 +258,7 @@ Load Factor = (Total elements in hash table) / (Size of hash table)
 <div class="ft"><div class="ur"><a href="https://devweekends.com" target="_blank" style="color:inherit;text-decoration:none;">devweekends.com</a></div><div class="pg"></div></div>
 </section>
 
-<section class="sl" data-s="16">
+<section class="sl" data-s="15">
 <div class="tb"><span class="tk">C++</span><span class="hr"></span><span class="pl"><span class="dt"></span>Library</span></div>
 <div class="mb">
 <div class="tk dm hk">Standard Template Library</div>
@@ -305,7 +281,7 @@ Load Factor = (Total elements in hash table) / (Size of hash table)
 <div class="ft"><div class="ur"><a href="https://devweekends.com" target="_blank" style="color:inherit;text-decoration:none;">devweekends.com</a></div><div class="pg"></div></div>
 </section>
 
-<section class="sl" data-s="17">
+<section class="sl" data-s="16">
 <div class="tb"><span class="tk">After This Session</span><span class="hr"></span><span class="pl"><span class="dt"></span>Resources</span></div>
 <div class="tk dm hk">Keep going</div>
 <h2 class="dp ht sm">Reference<br><span class="gh">Material</span></h2>
@@ -316,7 +292,7 @@ Load Factor = (Total elements in hash table) / (Size of hash table)
 <div class="ft"><div class="ur"><a href="https://devweekends.com" target="_blank" style="color:inherit;text-decoration:none;">devweekends.com</a></div><div class="pg"></div></div>
 </section>
 
-<section class="sl dv cl" data-s="18">
+<section class="sl dv cl" data-s="17">
 <div class="tb"><span class="tk">Open Floor</span><span class="hr"></span><span class="pl so"><span class="dt"></span>Ask Anything</span></div>
 <div class="mb">
 <div class="tk dm hk">Your turn</div>
@@ -328,7 +304,7 @@ Load Factor = (Total elements in hash table) / (Size of hash table)
 
 <div class="nv">
 <button id="prv">&#8592;</button>
-<span class="ct" id="ct">01 / 19</span>
+<span class="ct" id="ct">01 / 18</span>
 <button id="nxt">&#8594;</button>
 </div>
 
